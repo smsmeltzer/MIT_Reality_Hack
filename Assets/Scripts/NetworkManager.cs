@@ -24,16 +24,4 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
         PhotonNetwork.JoinOrCreateRoom("Room1", roomOptions, TypedLobby.Default);
     }
-
-    public override void OnJoinedLobby()
-    {
-        base.OnJoinedLobby();
-        Debug.Log("Joined the room!");
-    }
-
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        base.OnPlayerEnteredRoom(newPlayer);
-        Debug.Log("New player joined the room.");
-    }
 }
