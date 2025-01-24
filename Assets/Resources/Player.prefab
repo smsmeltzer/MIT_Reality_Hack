@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 3702689221971042253}
   - component: {fileID: 2466703461835399613}
   - component: {fileID: 1375810046502093783}
+  - component: {fileID: 4526641214549854326}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -337,7 +338,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee778a224ddbbe64f9912b456ba11f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRole: 0
+  myRole: 2
+--- !u!54 &4526641214549854326
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2505012916220475714}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7556261170920735309
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,9 +377,9 @@ GameObject:
   - component: {fileID: 4810230681993292278}
   - component: {fileID: 5648933063783445914}
   - component: {fileID: 8806401236253979501}
-  - component: {fileID: 7078692455044402345}
   - component: {fileID: 4072970510048166597}
   - component: {fileID: 3479858769883480495}
+  - component: {fileID: 2183870530884655259}
   m_Layer: 0
   m_Name: Left Controller
   m_TagString: Untagged
@@ -612,52 +640,6 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_SortAtRoot: 0
---- !u!114 &7078692455044402345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7556261170920735309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_System: {fileID: 5433079227591677667}
-  m_TurnSpeed: 60
-  m_LeftHandTurnAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: Left Hand Turn
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 20666816-9b74-4e62-9d44-7702c744eb51
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: 191c932c-b116-42d1-b41c-e2fbde9454ad
-        m_Path: <XRController>{LeftHand}/thumbstick
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Left Hand Turn
-        m_Flags: 0
-      m_Flags: 0
-    m_Reference: {fileID: 0}
-  m_RightHandTurnAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: Right Hand Turn
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: eca3040c-0a4b-4101-af29-2232edc2049d
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 0}
 --- !u!114 &4072970510048166597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,6 +751,57 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2183870530884655259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7556261170920735309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf296fc962d7184ab14ad1841598d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 5433079227591677667}
+  m_MoveSpeed: 1
+  m_EnableStrafe: 1
+  m_EnableFly: 0
+  m_UseGravity: 1
+  m_GravityApplicationMode: 0
+  m_ForwardSource: {fileID: 0}
+  m_LeftHandMoveAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Left Hand Move
+      m_Type: 0
+      m_ExpectedControlType: Vector2
+      m_Id: 1b8d96f1-b81c-4284-b000-397e161ee1f8
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 621365c6-7f8b-4bc6-919a-8389004e4e6c
+        m_Path: <XRController>{LeftHand}/thumbstick
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Left Hand Move
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_RightHandMoveAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Right Hand Move
+      m_Type: 0
+      m_ExpectedControlType: Vector2
+      m_Id: 4c27e6d7-1c59-42de-a793-c35e434a7c83
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
 --- !u!1 &8089207988838337506
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,6 +813,7 @@ GameObject:
   - component: {fileID: 1244205723816919280}
   - component: {fileID: 7511949453917322325}
   - component: {fileID: 5433079227591677667}
+  - component: {fileID: 3586165778515138533}
   m_Layer: 0
   m_Name: MovementManager
   m_TagString: Untagged
@@ -859,6 +893,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Timeout: 10
   m_XROrigin: {fileID: 4715833782030757011}
+--- !u!114 &3586165778515138533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8089207988838337506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f69dc1cb084aa42b2f2f8cd87bc770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 5433079227591677667}
+  m_DelayTime: 0
 --- !u!1 &8803414469940920747
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +920,7 @@ GameObject:
   - component: {fileID: 2591184036099155551}
   - component: {fileID: 3741131573428418970}
   - component: {fileID: 5410445922288903335}
+  - component: {fileID: 8162357655666269258}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Untagged
@@ -1243,3 +1292,49 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8162357655666269258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8803414469940920747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 5433079227591677667}
+  m_TurnSpeed: 60
+  m_LeftHandTurnAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Left Hand Turn
+      m_Type: 0
+      m_ExpectedControlType: Vector2
+      m_Id: 5453512e-038f-41ff-9c86-c56904a31941
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_RightHandTurnAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Right Hand Turn
+      m_Type: 0
+      m_ExpectedControlType: Vector2
+      m_Id: 608a3a19-6d5d-4b92-a827-157cf852a203
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 2314a5b5-f0e7-43c7-b308-38ce0f63408e
+        m_Path: <XRController>{RightHand}/thumbstick
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Right Hand Turn
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
