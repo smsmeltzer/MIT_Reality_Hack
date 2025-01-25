@@ -9,7 +9,12 @@ public class SliderControl : MonoBehaviour
      [SerializeReference] private float maxDistance;
     void Start()
     {
-        
+        if(GetComponent<ConfigurableJoint>() != null)
+        {
+            SoftJointLimit limit = GetComponent<ConfigurableJoint>().linearLimit;
+            limit.limit =  limit.limit * transform.root.localScale.x;
+            GetComponent<ConfigurableJoint>().linearLimit = limit; 
+        }
     }
 
     // Update is called once per frame
@@ -59,6 +64,6 @@ public class SliderControl : MonoBehaviour
     public int GetValue()
     {
     if(shipSystem == null){return 0;}
-        return Mathf.RoundToInt(((transform.localPosition.x) / maxDistance) * 100);
+        return Mathf.RoundToInt(((transform.localPosition.x) / maxDistance) * 10);
     }
 }

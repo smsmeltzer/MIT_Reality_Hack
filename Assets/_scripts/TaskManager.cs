@@ -2,14 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum systemName { }
 
-// public struct SystemRequirement
-// {
-//     public bool active=false;
-//     public int valueNeeded;
 
-// }
 
 public class TaskManager : MonoBehaviour
 {

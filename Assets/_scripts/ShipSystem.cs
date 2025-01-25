@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum ShipSystemValueType{binary,range,exact}
+
 public class ShipSystem : MonoBehaviour
 {
     private TaskManager taskManager;
@@ -12,7 +14,7 @@ public class ShipSystem : MonoBehaviour
     [SerializeReference] private GameObject warningLight;
     [SerializeReference] private TextMeshPro displayText;
     [SerializeReference] private TextMeshPro systemNameText;
-    [SerializeReference] private Transform grabber;
+    [SerializeReference] private ShipSystemValueType valueType;
     
     [SerializeReference] private int testingInterger;
 
@@ -30,10 +32,20 @@ public class ShipSystem : MonoBehaviour
         
     }
 
-    public void CheckSystem()
+    public bool CheckSystem(int _valueNeeded)
     {
+        if(GetSystemValueType() == ShipSystemValueType.binary)
+        {
+            if(_valueNeeded >= 50){return GetSystemValue() >= 50;}
+            return GetSystemValue() < 50;
+        }
 
+        if(GetSystemValueType() == ShipSystemValueType.exact)
+        {
+            return GetSystemValue() == _valueNeeded;
+        }
 
+        return Mathf.Abs(_valueNeeded - GetSystemValue()) <= 25;
     }
 
     public void SetSystemValue(int _newValue)
@@ -47,12 +59,33 @@ public class ShipSystem : MonoBehaviour
 
     }
 
-    void OnMouseDown()
+    public void DisplaySystemData(int _value)
     {
-        testingInterger++;
-        if(testingInterger > 2){testingInterger = 0;}
-        GetDisplayText().SetText(testingInterger.ToString());
+        string displayString = "--";
+        if(GetSystemValueType() == ShipSystemValueType.binary)
+        {
+            if(_value >= 50){displayString = "ON";}
+            else{displayString = "OFF";}
+            
+        }
+
+        if(GetSystemValueType() == ShipSystemValueType.exact)
+        {
+           displayString = _value.ToString() + "%";
+        }
+
+        if(GetSystemValueType() == ShipSystemValueType.range)
+        {
+            if(_value > 75)
+            {
+                displayString = "-HIGH";
+            }else if (_value < 25){ displayString =  "LOW--";}
+            else{displayString = "-MED-";}
+        }
+
+        GetDisplayText().SetText(displayString);
     }
+
 
     public TextMeshPro GetDisplayText()
     {
@@ -70,6 +103,12 @@ public class ShipSystem : MonoBehaviour
     {
         return systemName;
 
+    }
+
+    public ShipSystemValueType GetSystemValueType()
+    {
+
+        return valueType;
     }
 
     public TaskManager GetTaskManager()
