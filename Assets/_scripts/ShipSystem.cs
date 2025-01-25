@@ -9,8 +9,12 @@ public class ShipSystem : MonoBehaviour
     [SerializeReference] private GameObject warningLight;
     [SerializeReference] private TextMeshPro displayText;
 
+    [SerializeReference] private Transform grabber;
     
     [SerializeReference] private int testingInterger;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +26,12 @@ public class ShipSystem : MonoBehaviour
     {
         
     }
+
+    public void OnGrab(Transform _grabber)
+    {}
+
+    public void OnRelease(Transform _grabber)
+    {}
 
     void OnMouseDown()
     {
