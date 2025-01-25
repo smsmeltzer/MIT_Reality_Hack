@@ -248,8 +248,8 @@ GameObject:
   - component: {fileID: 4715833782030757011}
   - component: {fileID: 3702689221971042253}
   - component: {fileID: 2466703461835399613}
-  - component: {fileID: 1375810046502093783}
   - component: {fileID: 4526641214549854326}
+  - component: {fileID: 517188643472455864}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -326,19 +326,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1375810046502093783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2505012916220475714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee778a224ddbbe64f9912b456ba11f41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myRole: 2
 --- !u!54 &4526641214549854326
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -366,6 +353,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &517188643472455864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2505012916220475714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea257409ff8e4a4580c706af73df717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRole: 3
 --- !u!1 &7556261170920735309
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 2183870530884655259}
   m_Layer: 0
   m_Name: Left Controller
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -923,7 +923,7 @@ GameObject:
   - component: {fileID: 8162357655666269258}
   m_Layer: 0
   m_Name: Right Controller
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
