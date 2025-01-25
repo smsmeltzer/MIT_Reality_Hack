@@ -4,7 +4,12 @@ using UnityEngine;
 
 public enum systemName { }
 
-// public struct SystemRequirement{public}
+// public struct SystemRequirement
+// {
+//     public bool active=false;
+//     public int valueNeeded;
+
+// }
 
 public class TaskManager : MonoBehaviour
 {
@@ -22,6 +27,8 @@ public class TaskManager : MonoBehaviour
         
     }
 
+
+
     public Dictionary<string, int> GetSystemDictionary()
     {
 
@@ -35,20 +42,20 @@ public class TaskManager : MonoBehaviour
     }
 
 
-    // public void PopulateSystemDictionary()
-    // {
-    //     ShipSystem[] foundSystems = FindObjectsOfType<ShipSystem>();
-    //     int count = 0;
-    //     foreach(ShipSystem el in foundSystems)
-    //     {
-    //         if(systemObjects.ContainsKey(el.GetSystemName()) == false)
-    //         {
-    //             count++;
-    //             systemObjects.Add(el.GetSystemName(),el);
-    //             el.GetDisplayText().SetText(count.ToString());
-    //         }
+    public void PopulateSystemDictionary()
+    {
+        ShipSystem[] foundSystems = FindObjectsOfType<ShipSystem>();
+        int count = 0;
+        foreach(ShipSystem el in foundSystems)
+        {
+            if(systemDictionary.ContainsKey(el.GetSystemName()) == false)
+            {
+                count++;
+                systemDictionary.Add(el.GetSystemName(),0);
+                el.GetDisplayText().SetText(count.ToString());
+            }
 
-    //     }
+        }
         
-    // }
+    }
 }
