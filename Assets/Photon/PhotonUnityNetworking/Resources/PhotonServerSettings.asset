@@ -42,6 +42,20 @@ MonoBehaviour:
   - CantHearYou
   - ChangeColour
   - HeresWhy
+  - RPCAddPlayer
+  - addPlayer
+  - AddPlayer
+  - DisableRoleSelection
+  - DisableObj
+  - RPCAstronautReady
+  - RPCCommandReady
+  - RPCNextLine
+  - RPCAstronautNotReady
+  - RPCCommandNotReady
+  - RPCTaskCompleted
+  - RPCTaskNotCompleted
+  - RPCPlayAudioForAstronaut
+  - RPCPlayAudioForCommand
   DisableAutoOpenWizard: 1
   ShowSettings: 0
-  DevRegionSetOnce: 0
+  DevRegionSetOnce: 1

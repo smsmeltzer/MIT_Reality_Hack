@@ -5,12 +5,18 @@ using Photon.Pun;
 
 public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
 {
+    [SerializeField] GameManager gameManager;
     public GameObject PlayerPrefab;
-    public Transform playerSpawn;
+    public Transform spawnPoint;
 
+    private void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        PhotonNetwork.Instantiate(PlayerPrefab.name, playerSpawn.position, playerSpawn.rotation);
+        PhotonNetwork.Instantiate(PlayerPrefab.name, spawnPoint.position, spawnPoint.rotation);
     }
+
 }
