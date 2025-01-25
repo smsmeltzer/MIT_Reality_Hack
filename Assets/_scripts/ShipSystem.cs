@@ -5,6 +5,8 @@ using TMPro;
 
 public class ShipSystem : MonoBehaviour
 {
+    private TaskManager taskManager;
+
     [SerializeReference] private string systemName;
     [SerializeReference] private GameObject warningLight;
     [SerializeReference] private TextMeshPro displayText;
@@ -27,11 +29,11 @@ public class ShipSystem : MonoBehaviour
         
     }
 
-    public void OnGrab(Transform _grabber)
-    {}
+    public void CheckSystem()
+    {
 
-    public void OnRelease(Transform _grabber)
-    {}
+
+    }
 
     void OnMouseDown()
     {
@@ -56,5 +58,12 @@ public class ShipSystem : MonoBehaviour
     {
         return systemName;
 
+    }
+
+    public TaskManager GetTaskManager()
+    {
+        if(taskManager == null)
+        {taskManager = FindObjectOfType<TaskManager>(); }
+        return taskManager;
     }
 }
