@@ -4,6 +4,8 @@ using UnityEngine;
 
 public enum systemName { }
 
+// public struct SystemRequirement{public}
+
 public class TaskManager : MonoBehaviour
 {
     [SerializeReference] private Dictionary<string, int> systemDictionary;
@@ -24,8 +26,29 @@ public class TaskManager : MonoBehaviour
     {
 
         if(systemDictionary == null)
-        {systemDictionary  = new Dictionary<string, int>();}
+        {
+            systemDictionary  = new Dictionary<string, int>();
+
+        }
 
         return systemDictionary;
     }
+
+
+    // public void PopulateSystemDictionary()
+    // {
+    //     ShipSystem[] foundSystems = FindObjectsOfType<ShipSystem>();
+    //     int count = 0;
+    //     foreach(ShipSystem el in foundSystems)
+    //     {
+    //         if(systemObjects.ContainsKey(el.GetSystemName()) == false)
+    //         {
+    //             count++;
+    //             systemObjects.Add(el.GetSystemName(),el);
+    //             el.GetDisplayText().SetText(count.ToString());
+    //         }
+
+    //     }
+        
+    // }
 }
