@@ -1,41 +1,11 @@
 fileFormatVersion: 2
-guid: d97eadf26e16e354e892918ef75016da
+guid: a5e1a2f241341264abb524e014715eab
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Frame_Baked.001
-    second: {fileID: 2100000, guid: cddbca373429a5046bd3cc6782eb16ab, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Heating_Baked.001
-    second: {fileID: 2100000, guid: a699875231f666c4f9558bd870a2d788, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rubber_Baked.001
-    second: {fileID: 2100000, guid: 45f5f7cd7c296a74b8f7f157574f0f35, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Screws_Baked.001
-    second: {fileID: 2100000, guid: fc6335017623b3147befca596d761bef, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Window_Inside_Baked.001
-    second: {fileID: 2100000, guid: 0116da8346f7a2d488d55047f7c9f886, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Window_Outside_Baked.001
-    second: {fileID: 2100000, guid: 04a19f000eba6aa439471beb1251ddc9, type: 2}
+  externalObjects: {}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
