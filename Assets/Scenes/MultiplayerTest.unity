@@ -678,8 +678,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  gameEvents: []
   AstronautAudioSource: {fileID: 456831586}
   CommandAudioSource: {fileID: 903748806}
+  AstronautText: {fileID: 0}
+  CommandText: {fileID: 0}
   astronautReady: 0
   commandReady: 0
   taskCompleted: 1
@@ -1100,7 +1103,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c0985cb49d451894e9316c16ea382995, type: 2}
+  - {fileID: 2100000, guid: 14890e0404bae4c4a9a1c25841c90dd8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2554,7 +2557,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d7bf58af93b92104b80959f2498cdeeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

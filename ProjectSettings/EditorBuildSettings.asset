@@ -10,10 +10,10 @@ EditorBuildSettings:
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
     path: Assets/Scenes/MissionControl.unity
-    guid: 4de811ad498c85a4c8b147b08681ab5a
+    guid: 7f4de8e4090db2e48be786f178f812de
   - enabled: 0
     path: Assets/Scenes/MainScene.unity
-    guid: 3182520efbe7c77489f69ee65d8ff1ae
+    guid: 1452d173da9863c48aa5bc882f51bdd7
   - enabled: 1
     path: Assets/Scenes/Thrash.unity
     guid: 042fc4d3602900e4381d3db1d9bb251c
