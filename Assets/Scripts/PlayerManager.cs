@@ -9,6 +9,8 @@ public class PlayerManager : MonoBehaviourPun
     
     public Role myRole;
 
+    private AudioSource myAudioSource;
+
     void Start()
     {
         myRole = Role.None;
@@ -29,4 +31,6 @@ public class PlayerManager : MonoBehaviourPun
     {
         myRole = role;
     }
+
+
 }
