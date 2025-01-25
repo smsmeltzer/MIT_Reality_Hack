@@ -98,7 +98,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100054, guid: d0c255d07fd68f14b94e55d388e7e6bb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 394686158286364546}
+      addedObject: {fileID: 1990063885161426004}
   m_SourcePrefab: {fileID: 100100000, guid: d0c255d07fd68f14b94e55d388e7e6bb, type: 3}
 --- !u!4 &733498040823948632 stripped
 Transform:
@@ -110,7 +110,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100054, guid: d0c255d07fd68f14b94e55d388e7e6bb, type: 3}
   m_PrefabInstance: {fileID: 733498040824348654}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &394686158286364546
+--- !u!114 &1990063885161426004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,21 +119,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 733498040824248632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d8219a3d8a73a7409b5e02ce1fe7fc6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0de64a53f7654274aa79418e10ac7857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TriggerInput:
-    m_UseReference: 1
+    m_UseReference: 0
     m_Action:
       m_Name: Trigger Input
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 0ca6ad3d-f02c-4ccd-8622-1f2a78a2a438
+      m_Id: 2e169938-ca5b-4074-ba1c-7645ff162da7
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 2894c094-f690-4a68-97a1-9aef65148717
+        m_Id: 29f6f6c0-add1-47d0-b8a6-42a593d6db45
         m_Path: <XRController>{RightHand}/{Trigger}
         m_Interactions: 
         m_Processors: 
@@ -141,19 +141,19 @@ MonoBehaviour:
         m_Action: Trigger Input
         m_Flags: 0
       m_Flags: 0
-    m_Reference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: 0}
   GripInput:
-    m_UseReference: 1
+    m_UseReference: 0
     m_Action:
       m_Name: Grip Input
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 76596f69-bf5e-4203-929f-aefa73bdfed0
+      m_Id: cef0a2e6-2560-4558-b4d1-4aa60c55270f
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 073e745f-3dea-4af1-b9c0-ff654cdca49a
+        m_Id: eeee6228-6533-4114-95fd-531a4106701d
         m_Path: <XRController>{RightHand}/{Grip}
         m_Interactions: 
         m_Processors: 
@@ -161,4 +161,4 @@ MonoBehaviour:
         m_Action: Grip Input
         m_Flags: 0
       m_Flags: 0
-    m_Reference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: 0}
