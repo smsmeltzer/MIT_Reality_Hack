@@ -10,7 +10,7 @@ public class ShipSystem : MonoBehaviour
     [SerializeReference] private string systemName;
     [SerializeReference] private GameObject warningLight;
     [SerializeReference] private TextMeshPro displayText;
-
+ [SerializeReference] private TextMeshPro systemNameText;
     [SerializeReference] private Transform grabber;
     
     [SerializeReference] private int testingInterger;
@@ -20,7 +20,7 @@ public class ShipSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(systemNameText != null){systemNameText.SetText(systemName);}
     }
 
     // Update is called once per frame

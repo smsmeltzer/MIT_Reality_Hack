@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SliderControl : MonoBehaviour
+public class LeverControl : MonoBehaviour
 {
-    [SerializeReference] private ShipSystem shipSystem;
+   [SerializeReference] private ShipSystem shipSystem;
     [SerializeReference] private bool isGrabbed;
-     [SerializeReference] private float maxDistance;
+    
     void Start()
     {
         
@@ -40,25 +40,22 @@ public class SliderControl : MonoBehaviour
     {
         if(shipSystem == null){return;}
 
-        string percent = "";
+        string percent = "off";
 
-        if(GetValue() == 360)
+        if(GetValue() )
         {
-             percent = "0";
+             percent = "on";
         
         }
-        else
-        {
-            percent =   GetValue().ToString();
-        
-        }
+
      
-        shipSystem.GetDisplayText().SetText(percent);;
+        shipSystem.GetDisplayText().SetText(percent);
 
     }
-    public int GetValue()
+    public bool GetValue()
     {
-    if(shipSystem == null){return 0;}
-        return Mathf.RoundToInt(((transform.localPosition.x) / maxDistance) * 100);
+
+        return transform.eulerAngles.z - 180 < 0;
     }
+
 }
