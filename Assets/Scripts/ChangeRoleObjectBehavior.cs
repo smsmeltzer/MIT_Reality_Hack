@@ -21,6 +21,7 @@ public class ChangeRoleBehavior : XRGrabInteractable
         GetComponent<PhotonView>().RPC("DisableObj", RpcTarget.All);
     }
 
+
     [PunRPC]
     public void DisableObj()
     {
