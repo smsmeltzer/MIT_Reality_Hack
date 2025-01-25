@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviourPun
 {
-    public UnityEvent Event;
+
     void Start()
     {
     }
