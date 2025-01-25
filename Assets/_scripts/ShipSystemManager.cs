@@ -29,7 +29,11 @@ public class ShipSystemManager : MonoBehaviour
 
     }
 
-
+    public void UpdateShipSystem(string _name,int _value)
+    {
+        ShipSystem systemToUpdate = GetSystemObjects()[_name];
+        systemToUpdate.SetSystemValue(_value);
+    }
 
 
 

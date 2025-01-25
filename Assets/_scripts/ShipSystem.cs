@@ -8,9 +8,10 @@ public class ShipSystem : MonoBehaviour
     private TaskManager taskManager;
 
     [SerializeReference] private string systemName;
+    [SerializeReference] private int currentValue;
     [SerializeReference] private GameObject warningLight;
     [SerializeReference] private TextMeshPro displayText;
- [SerializeReference] private TextMeshPro systemNameText;
+    [SerializeReference] private TextMeshPro systemNameText;
     [SerializeReference] private Transform grabber;
     
     [SerializeReference] private int testingInterger;
@@ -32,6 +33,17 @@ public class ShipSystem : MonoBehaviour
     public void CheckSystem()
     {
 
+
+    }
+
+    public void SetSystemValue(int _newValue)
+    {
+        currentValue = _newValue;
+
+    }
+    public int GetSystemValue( )
+    {
+        return currentValue ;
 
     }
 

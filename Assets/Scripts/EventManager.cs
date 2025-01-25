@@ -30,6 +30,7 @@ public class EventManager : MonoBehaviourPun
     private bool tutorial = true;
     private bool game = false;
 
+  [SerializeField] private ShipSystemManager shipSystemManager;
     private void ReadyCheck()
     {
         if (astronautReady && commandReady && taskCompleted)
@@ -37,6 +38,47 @@ public class EventManager : MonoBehaviourPun
             photonView.RPC("RPCNextLine", RpcTarget.All);
         }
     }
+#region
+
+    public void TryUpdateSystem(ShipSystem _system)
+    {
+        //called when a player changes an interactable on the ship
+        //intended to then be passed as an rpc to all players to sync their values
+
+        photonView.RPC("RPCSyncShipSystem" ,RpcTarget.All,_system.GetSystemName(),_system.GetSystemValue());
+
+    }
+
+    [PunRPC]
+    public void RPCSyncShipSystem(string _systemName,int _value)
+    {
+        if (tutorial) { 
+            tutorialEvents[index].Invoke();
+        }
+        else if (game)
+        {
+            gameEvents[index].Invoke();
+        }
+        index++;
+    }
+
+    public void SyncShipSystem(string _name,int _value)
+    {
+        GetShipSystemManager().UpdateShipSystem(_name,_value);
+
+    }
+
+        public ShipSystemManager GetShipSystemManager()
+    {
+        if(shipSystemManager == null)
+        {shipSystemManager = FindObjectOfType<ShipSystemManager>(); }
+        return shipSystemManager;
+    }
+
+#endregion
+
+
+
 
     [PunRPC]
     public void RPCNextLine()
