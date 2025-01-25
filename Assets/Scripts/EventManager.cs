@@ -8,6 +8,12 @@ using UnityEngine.Events;
 
 public class EventManager : MonoBehaviourPun
 {
+
+    public enum EventTypes
+    {
+        Undocking, Angle, Velocity, LifeSupport, Landing
+    }
+
     public List<UnityEvent> tutorialEvents = new List<UnityEvent>();
     public List<UnityEvent> gameEvents = new List<UnityEvent>();
     
