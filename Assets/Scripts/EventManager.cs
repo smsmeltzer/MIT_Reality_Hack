@@ -15,8 +15,8 @@ public class EventManager : MonoBehaviourPun
     [SerializeField] AudioSource CommandAudioSource;
     [SerializeField] TextMeshProUGUI AstronautText;
     [SerializeField] TextMeshProUGUI CommandText;
-    [SerializeField] GameObject Results1;
-    [SerializeField] GameObject Results2;
+    [SerializeField] TextMeshProUGUI Results1;
+    [SerializeField] TextMeshProUGUI Results2;
 
     public bool astronautReady = false;
     public bool commandReady = false;
@@ -36,6 +36,9 @@ public class EventManager : MonoBehaviourPun
     {
         taskManager = GetComponent<TaskManager>();
         timer = GetComponent<Timer>();
+        Results1.enabled = false;
+        Results2.enabled = false;
+
     }
 
     [SerializeField] private ShipSystemManager shipSystemManager;
@@ -179,13 +182,17 @@ public class EventManager : MonoBehaviourPun
 
     public void EndGame()
     {
+        Results1.enabled = true;
+        Results2.enabled = true;
         if (taskManager.GetOutstandingSystems().Count == 0) // success
-        {
-            
+        {         
+            Results1.text = "You Win! The Astronauts landed on the moon.";
+            Results2.text = "You Win! The Astronauts landed on the moon.";
         }
         else    // failure
         {
-
+            Results1.GetComponent<TextMeshProUGUI>().text = "Mission Aborted. The spacecraft has crashed on the moon.";
+            Results2.GetComponent<TextMeshProUGUI>().text = "Mission Aborted. The spacecraft has crashed on the moon.";
         }
     }
 
