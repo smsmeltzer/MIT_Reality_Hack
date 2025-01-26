@@ -51,6 +51,29 @@ public class EventManager : MonoBehaviourPun
     }
 #region
 
+
+    public void TryUpdateTask(int _type,int _index)
+    {
+
+       // if(PhotonView.isHost == false){return;}
+        photonView.RPC("RPCSyncTask" ,RpcTarget.All,_type,_index);
+
+    }
+
+    [PunRPC]
+    public void RPCSyncTask(int _type,int _index)
+    {
+      
+        SyncTask(_type,_index);
+    }
+
+    public void SyncTask(int _type,int _index)
+    {
+        GetTaskManager().SynceNewTask(_type,_index);
+
+    }
+
+
     public void TryUpdateSystem(ShipSystem _system)
     {
         //called when a player changes an interactable on the ship
@@ -71,21 +94,28 @@ public class EventManager : MonoBehaviourPun
             gameEvents[index].Invoke();
         }
         index++;
+
+        SyncShipSystem(_systemName,_value);
     }
 
     public void SyncShipSystem(string _name,int _value)
     {
         GetShipSystemManager().UpdateShipSystem(_name,_value);
-
+        GetTaskManager().CheckSystem(GetShipSystemManager().GetSystemObjects()[_name]);
     }
 
-        public ShipSystemManager GetShipSystemManager()
+    public ShipSystemManager GetShipSystemManager()
     {
         if(shipSystemManager == null)
         {shipSystemManager = FindObjectOfType<ShipSystemManager>(); }
         return shipSystemManager;
     }
-
+    public TaskManager GetTaskManager()
+    {
+        if(taskManager == null)
+        {taskManager = FindObjectOfType<TaskManager>(); }
+        return taskManager;
+    }
 #endregion
 
 
