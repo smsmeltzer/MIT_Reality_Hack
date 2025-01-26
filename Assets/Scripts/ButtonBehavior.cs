@@ -7,15 +7,21 @@ public class ButtonBehavior : XRGrabInteractable
 {
     [SerializeField] private AudioSource AudioSource;
 
+    private float y;
+
+    private void Start()
+    {
+        y = transform.position.y;
+    }
     protected override void OnSelectEntered(SelectEnterEventArgs args) {  
         base.OnSelectEntered(args); 
-        transform.position += new Vector3(0, -.01f, 0);
+        transform.position = new Vector3(transform.position.x, y - .01f, transform.position.z);
         AudioSource.Play();
     }
 
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
         base.OnSelectExited(args);
-        transform.position += new Vector3(0, .01f, 0);
+        transform.position = new Vector3(transform.position.x, y + .01f, transform.position.z);
     }
 }
