@@ -1583,6 +1583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1512640065}
   - component: {fileID: 1512640066}
+  - component: {fileID: 1512640067}
   m_Layer: 0
   m_Name: TaskManager
   m_TagString: Untagged
@@ -1618,10 +1619,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   systemsThatNeedAttention: []
+  gameOn: 0
   debugSystemName: 
   debugSystemValue: 0
   sucess: 0
   debug: 0
+  idleTimer: 0
+--- !u!114 &1512640067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512640063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d6683116ab3884a8d1bb3af2f08294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTasksPerGame: 7
+  currentTaskCount: 0
+  detaching:
+  - {fileID: 11400000, guid: 587c5fc87025c5d489c43abad418b312, type: 2}
+  - {fileID: 11400000, guid: b2b5a322c6c7f1845a25b9a7548681da, type: 2}
+  - {fileID: 11400000, guid: cfd7c6f180d5f3c41946942939ca683e, type: 2}
+  angleAdjust:
+  - {fileID: 11400000, guid: f8f343898418a844d9678f355f75af5f, type: 2}
+  - {fileID: 11400000, guid: 61d8e894cb5d30740b0ef8320da76ac2, type: 2}
+  velocityAdjust:
+  - {fileID: 11400000, guid: 610e3d98a61bfce4385237fed2587765, type: 2}
+  - {fileID: 11400000, guid: 2d352c8edcc20c44ea3b22c55c391a1f, type: 2}
+  - {fileID: 11400000, guid: 102929d7a3908c84ca7c3ba7f8cf022f, type: 2}
+  lifeSupport:
+  - {fileID: 11400000, guid: 92ed782ba4e5d6c4fa10328a792cb816, type: 2}
+  - {fileID: 11400000, guid: d196856a225b5af469bcdaf5dac0a928, type: 2}
+  landing:
+  - {fileID: 11400000, guid: f8d2c46758cb6774d8c1cab6c0491fca, type: 2}
+  - {fileID: 11400000, guid: 9abcce55a5ee4414da1ffe96b6131f25, type: 2}
 --- !u!4 &1513357993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9057655254806651343, guid: ea1b1abafc0299b4981ff596715e99f0, type: 3}
