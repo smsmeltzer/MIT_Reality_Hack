@@ -132,7 +132,7 @@ public class TaskManager : MonoBehaviour
 
         gameOn = true;
 
-
+SelectNewTaskGroup();
     }
 
 
