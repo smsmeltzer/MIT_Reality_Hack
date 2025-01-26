@@ -18,7 +18,7 @@ public class ShipSystem : MonoBehaviour
     
     [SerializeReference] private int testingInterger;
 
-
+public bool debug;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,11 @@ public class ShipSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(debug)
+        {
+            debug = false;
+            GetTaskManager().CheckSystem(this);
+        }
     }
 
     public bool CheckSystem(int _valueNeeded)

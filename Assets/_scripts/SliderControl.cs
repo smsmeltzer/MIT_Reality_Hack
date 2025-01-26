@@ -23,6 +23,7 @@ public class SliderControl : MonoBehaviour
         if(isGrabbed)
         {
           DisplayData();
+          shipSystem.SetSystemValue(GetValue());
         }
     }   
 
@@ -37,7 +38,7 @@ public class SliderControl : MonoBehaviour
     public void OnRelease()
     {
         isGrabbed = false;
-
+        shipSystem.GetTaskManager().CheckSystem(shipSystem);
     }
 
 
