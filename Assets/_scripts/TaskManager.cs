@@ -70,12 +70,7 @@ public class TaskManager : MonoBehaviour
 
         //rpc call for new task
        // GetTaskSelector().GetNextTask();
-        if(sucess)
-        {
-        GetOutstandingSystems().Clear();
-        SynceNewTask(taskCount,indexOfTask);
-        sucess = false;
-        }
+        GetEventManager().TryUpdateTask(taskCount,indexOfTask);
     }
 
     public void SynceNewTask(int _type,int _index)
@@ -197,5 +192,10 @@ public class TaskManager : MonoBehaviour
         if(taskSelector == null){taskSelector = GetComponent<TaskSelector>();}
         return taskSelector;
     }
-
+    private EventManager eventManager;
+ public EventManager GetEventManager()
+    {
+        if(eventManager == null){eventManager = GetComponent<EventManager>();}
+        return eventManager;
+    }
 }
