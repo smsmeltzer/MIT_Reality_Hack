@@ -15,8 +15,6 @@ public class EventManager : MonoBehaviourPun
     [SerializeField] AudioSource CommandAudioSource;
     [SerializeField] TextMeshProUGUI AstronautText;
     [SerializeField] TextMeshProUGUI CommandText;
-    [SerializeField] TextMeshProUGUI Results1;
-    [SerializeField] TextMeshProUGUI Results2;
 
     public bool astronautReady = false;
     public bool commandReady = false;
@@ -36,9 +34,6 @@ public class EventManager : MonoBehaviourPun
     {
         taskManager = GetComponent<TaskManager>();
         timer = GetComponent<Timer>();
-        Results1.enabled = false;
-        Results2.enabled = false;
-
     }
 
     [SerializeField] private ShipSystemManager shipSystemManager;
@@ -202,27 +197,29 @@ public class EventManager : MonoBehaviourPun
         PlayAudioForCommand(clip1);
         PlayAudioForAstronaut(clip1);
         yield return new WaitForSeconds(10);
+
         PlayAudioForCommand(clip2);
         PlayAudioForAstronaut(clip2);
         index = 0;
         game = true;
         tutorial = false;
         timer.StartTimer();
+        taskManager.StartGame();
+        ChangeAstronautText("");
+        ChangeCommandText("");
     }
 
     public void EndGame()
     {
-        Results1.enabled = true;
-        Results2.enabled = true;
         if (taskManager.GetOutstandingSystems().Count == 0) // success
         {         
-            Results1.text = "You Win! The Astronauts landed on the moon.";
-            Results2.text = "You Win! The Astronauts landed on the moon.";
+            ChangeCommandText("You Win! The Astronauts landed on the moon.");
+            ChangeAstronautText("You Win! The Astronauts landed on the moon.");
         }
         else    // failure
         {
-            Results1.GetComponent<TextMeshProUGUI>().text = "Mission Aborted. The spacecraft has crashed on the moon.";
-            Results2.GetComponent<TextMeshProUGUI>().text = "Mission Aborted. The spacecraft has crashed on the moon.";
+            ChangeCommandText("Mission Aborted. The spacecraft has crashed on the moon.");
+            ChangeAstronautText("Mission Aborted. The spacecraft has crashed on the moon.");
         }
     }
 
