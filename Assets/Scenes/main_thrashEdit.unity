@@ -4309,11 +4309,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152589829}
   m_Mesh: {fileID: -2319181992924900127, guid: 3b628f7819dbf044ba6ea40cb14eacc3, type: 3}
---- !u!4 &154552480 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3124789651173908988, guid: 49ca8410038d0e74eb2032def232edbe, type: 3}
-  m_PrefabInstance: {fileID: 9221236804602946754}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &155110855
 GameObject:
   m_ObjectHideFlags: 0
@@ -14318,16 +14313,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639089831}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.452}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.659}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 154552480}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.615}
+  m_AnchoredPosition: {x: -12.615, y: -32.801}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &639089833
@@ -17988,7 +17983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemsThatNeedAttention: []
   gameOn: 0
-  missionControlText: {fileID: 0}
+  missionControlText: {fileID: 639089833}
   moonText: {fileID: 0}
   debugSystemName: 
   debugSystemValue: 0
@@ -91067,10 +91062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3124789651173908988, guid: 49ca8410038d0e74eb2032def232edbe, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 639089832}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49ca8410038d0e74eb2032def232edbe, type: 3}
 --- !u!1660057539 &9223372036854775807
@@ -91088,3 +91080,4 @@ SceneRoots:
   - {fileID: 925923731}
   - {fileID: 611009826}
   - {fileID: 9221236804602946754}
+  - {fileID: 639089832}

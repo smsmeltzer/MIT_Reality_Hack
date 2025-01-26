@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e1bead548f062478caf19b68ef03c7, type: 3}
   m_Name: velocity0
   m_EditorClassIdentifier: 
-  taskCategory: angle
+  taskCategory: velocity low
   tasks:
   - systemName: lever0
-    valueNeeded: 1
+    valueNeeded: 100
   - systemName: lever2
-    valueNeeded: 1
+    valueNeeded: 100
   - systemName: lever4
-    valueNeeded: 1
+    valueNeeded: 100
   - systemName: dial0
     valueNeeded: 150
   - systemName: slider0
