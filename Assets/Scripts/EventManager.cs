@@ -9,7 +9,6 @@ using UnityEngine.Events;
 public class EventManager : MonoBehaviourPun
 {
     public List<UnityEvent> tutorialEvents = new List<UnityEvent>();
-    public List<UnityEvent> gameEvents = new List<UnityEvent>();
     
     [SerializeField] AudioSource AstronautAudioSource;
     [SerializeField] AudioSource CommandAudioSource;
@@ -22,18 +21,18 @@ public class EventManager : MonoBehaviourPun
 
     public AudioClip clip1;
     public AudioClip clip2;
+    public AudioClip WinClip;
+    public AudioClip LoseClip;
 
     private Timer timer;
     private TaskManager taskManager;
     private int index = 0;
-    private bool tutorial = true;
-    private bool game = false;
-       
 
     private void Start()
     {
         taskManager = GetComponent<TaskManager>();
         timer = GetComponent<Timer>();
+        StartGame();
     }
 
     [SerializeField] private ShipSystemManager shipSystemManager;
@@ -81,13 +80,7 @@ public class EventManager : MonoBehaviourPun
     [PunRPC]
     public void RPCSyncShipSystem(string _systemName,int _value)
     {
-        if (tutorial) { 
-            tutorialEvents[index].Invoke();
-        }
-        else if (game)
-        {
-            gameEvents[index].Invoke();
-        }
+        tutorialEvents[index].Invoke();
         index++;
 
         SyncShipSystem(_systemName,_value);
@@ -119,13 +112,7 @@ public class EventManager : MonoBehaviourPun
     [PunRPC]
     public void RPCNextLine()
     {
-        if (tutorial) { 
-            tutorialEvents[index].Invoke();
-        }
-        else if (game)
-        {
-            gameEvents[index].Invoke();
-        }
+        tutorialEvents[index].Invoke();
         index++;
     }
 
@@ -201,8 +188,6 @@ public class EventManager : MonoBehaviourPun
         PlayAudioForCommand(clip2);
         PlayAudioForAstronaut(clip2);
         index = 0;
-        game = true;
-        tutorial = false;
         timer.StartTimer();
         taskManager.StartGame();
         ChangeAstronautText("");
@@ -215,11 +200,15 @@ public class EventManager : MonoBehaviourPun
         {         
             ChangeCommandText("You Win! The Astronauts landed on the moon.");
             ChangeAstronautText("You Win! The Astronauts landed on the moon.");
+            PlayAudioForAstronaut(WinClip);
+            PlayAudioForCommand(WinClip);
         }
         else    // failure
         {
             ChangeCommandText("Mission Aborted. The spacecraft has crashed on the moon.");
             ChangeAstronautText("Mission Aborted. The spacecraft has crashed on the moon.");
+            PlayAudioForAstronaut(LoseClip);
+            PlayAudioForCommand(LoseClip);
         }
     }
 
