@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 
@@ -18,11 +19,14 @@ public class TaskManager : MonoBehaviour
     [SerializeReference] private List<string> systemsThatNeedAttention;
 
     [SerializeReference] private bool gameOn;
+     [SerializeReference] private TextMeshPro missionControlText;
+     
+     [SerializeReference] private TextMeshPro moonText;
 
     public string debugSystemName;
     public int debugSystemValue;
     public bool sucess = false;
-     public bool debug;
+    public bool debug;
 
      public float idleTimer; // safety check if for some reason there are no tasks in the list when there should be
 
@@ -76,6 +80,10 @@ public class TaskManager : MonoBehaviour
     public void SynceNewTask(int _type,int _index)
     {
         TaskObject newTask = GetTaskSelector().GetNextTask(_type,_index);
+
+        if(moonText != null){moonText.SetText(newTask.taskCategory);}
+        if(missionControlText != null){missionControlText.SetText(newTask.taskCategory);}
+
         foreach(TaskSubObject el in newTask.tasks)
         {
             //dont add a task if the system doesnt exist
