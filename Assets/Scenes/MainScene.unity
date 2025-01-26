@@ -17811,6 +17811,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemsThatNeedAttention: []
   gameOn: 0
+  missionControlText: {fileID: 0}
+  moonText: {fileID: 0}
   debugSystemName: 
   debugSystemValue: 0
   sucess: 0
@@ -33050,6 +33052,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: scene
       objectReference: {fileID: 0}
+    - target: {fileID: -329713482694185471, guid: 7e35b99fcee7f6c4ea1fdf95e5f7ca3c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 7e35b99fcee7f6c4ea1fdf95e5f7ca3c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.61109
@@ -33101,6 +33107,10 @@ PrefabInstance:
     - target: {fileID: 2774220344278030320, guid: 7e35b99fcee7f6c4ea1fdf95e5f7ca3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674927555886195563, guid: 7e35b99fcee7f6c4ea1fdf95e5f7ca3c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
