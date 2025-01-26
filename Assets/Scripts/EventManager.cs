@@ -8,12 +8,6 @@ using UnityEngine.Events;
 
 public class EventManager : MonoBehaviourPun
 {
-
-    public enum EventTypes
-    {
-        Undocking, Angle, Velocity, LifeSupport, Landing
-    }
-
     public List<UnityEvent> tutorialEvents = new List<UnityEvent>();
     public List<UnityEvent> gameEvents = new List<UnityEvent>();
     
@@ -21,6 +15,8 @@ public class EventManager : MonoBehaviourPun
     [SerializeField] AudioSource CommandAudioSource;
     [SerializeField] TextMeshProUGUI AstronautText;
     [SerializeField] TextMeshProUGUI CommandText;
+    [SerializeField] GameObject Results1;
+    [SerializeField] GameObject Results2;
 
     public bool astronautReady = false;
     public bool commandReady = false;
@@ -29,11 +25,20 @@ public class EventManager : MonoBehaviourPun
     public AudioClip clip1;
     public AudioClip clip2;
 
+    private Timer timer;
+    private TaskManager taskManager;
     private int index = 0;
     private bool tutorial = true;
     private bool game = false;
+       
 
-  [SerializeField] private ShipSystemManager shipSystemManager;
+    private void Start()
+    {
+        taskManager = GetComponent<TaskManager>();
+        timer = GetComponent<Timer>();
+    }
+
+    [SerializeField] private ShipSystemManager shipSystemManager;
     private void ReadyCheck()
     {
         if (astronautReady && commandReady && taskCompleted)
@@ -169,12 +174,21 @@ public class EventManager : MonoBehaviourPun
         index = 0;
         game = true;
         tutorial = false;
+        timer.StartTimer();
     }
 
     public void EndGame()
     {
+        if (taskManager.GetOutstandingSystems().Count == 0) // success
+        {
+            
+        }
+        else    // failure
+        {
 
+        }
     }
+
 
 
 }
