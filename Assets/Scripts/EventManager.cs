@@ -26,6 +26,9 @@ public class EventManager : MonoBehaviourPun
     public bool commandReady = false;
     public bool taskCompleted = true;
 
+    public AudioClip clip1;
+    public AudioClip clip2;
+
     private int index = 0;
     private bool tutorial = true;
     private bool game = false;
@@ -98,7 +101,7 @@ public class EventManager : MonoBehaviourPun
         commandReady = true;
         if (!astronautReady)
         {
-            CommandText.text = "Waiting on Astronauts...";
+            CommandText.text = "Waiting on Astronaut...";
         }
         ReadyCheck();
     }
@@ -157,7 +160,12 @@ public class EventManager : MonoBehaviourPun
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
+        PlayAudioForCommand(clip1);
+        PlayAudioForAstronaut(clip1);
+        yield return new WaitForSeconds(10);
+        PlayAudioForCommand(clip2);
+        PlayAudioForAstronaut(clip2);
         index = 0;
         game = true;
         tutorial = false;
