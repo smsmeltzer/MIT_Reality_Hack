@@ -55,7 +55,7 @@ public class EventManager : MonoBehaviourPun
     public void TryUpdateTask(int _type,int _index)
     {
 
-       // if(PhotonView.isHost == false){return;}
+       if(PhotonNetwork.IsMasterClient == false){return;}
         photonView.RPC("RPCSyncTask" ,RpcTarget.All,_type,_index);
 
     }
