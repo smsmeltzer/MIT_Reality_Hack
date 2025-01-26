@@ -1298,7 +1298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8017444941533781927, guid: ea1b1abafc0299b4981ff596715e99f0, type: 3}
       propertyPath: systemName
-      value: slider0
+      value: slider1
       objectReference: {fileID: 0}
     - target: {fileID: 9057655254806651343, guid: ea1b1abafc0299b4981ff596715e99f0, type: 3}
       propertyPath: m_LocalScale.x
