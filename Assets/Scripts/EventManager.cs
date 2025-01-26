@@ -8,12 +8,6 @@ using UnityEngine.Events;
 
 public class EventManager : MonoBehaviourPun
 {
-
-    public enum EventTypes
-    {
-        Undocking, Angle, Velocity, LifeSupport, Landing
-    }
-
     public List<UnityEvent> tutorialEvents = new List<UnityEvent>();
     public List<UnityEvent> gameEvents = new List<UnityEvent>();
     
@@ -21,6 +15,8 @@ public class EventManager : MonoBehaviourPun
     [SerializeField] AudioSource CommandAudioSource;
     [SerializeField] TextMeshProUGUI AstronautText;
     [SerializeField] TextMeshProUGUI CommandText;
+    [SerializeField] TextMeshProUGUI Results1;
+    [SerializeField] TextMeshProUGUI Results2;
 
     public bool astronautReady = false;
     public bool commandReady = false;
@@ -29,11 +25,23 @@ public class EventManager : MonoBehaviourPun
     public AudioClip clip1;
     public AudioClip clip2;
 
+    private Timer timer;
+    private TaskManager taskManager;
     private int index = 0;
     private bool tutorial = true;
     private bool game = false;
+       
 
-  [SerializeField] private ShipSystemManager shipSystemManager;
+    private void Start()
+    {
+        taskManager = GetComponent<TaskManager>();
+        timer = GetComponent<Timer>();
+        Results1.enabled = false;
+        Results2.enabled = false;
+
+    }
+
+    [SerializeField] private ShipSystemManager shipSystemManager;
     private void ReadyCheck()
     {
         if (astronautReady && commandReady && taskCompleted)
@@ -42,6 +50,29 @@ public class EventManager : MonoBehaviourPun
         }
     }
 #region
+
+
+    public void TryUpdateTask(int _type,int _index)
+    {
+
+       // if(PhotonView.isHost == false){return;}
+        photonView.RPC("RPCSyncTask" ,RpcTarget.All,_type,_index);
+
+    }
+
+    [PunRPC]
+    public void RPCSyncTask(int _type,int _index)
+    {
+      
+        SyncTask(_type,_index);
+    }
+
+    public void SyncTask(int _type,int _index)
+    {
+        GetTaskManager().SynceNewTask(_type,_index);
+
+    }
+
 
     public void TryUpdateSystem(ShipSystem _system)
     {
@@ -63,21 +94,28 @@ public class EventManager : MonoBehaviourPun
             gameEvents[index].Invoke();
         }
         index++;
+
+        SyncShipSystem(_systemName,_value);
     }
 
     public void SyncShipSystem(string _name,int _value)
     {
         GetShipSystemManager().UpdateShipSystem(_name,_value);
-
+        GetTaskManager().CheckSystem(GetShipSystemManager().GetSystemObjects()[_name]);
     }
 
-        public ShipSystemManager GetShipSystemManager()
+    public ShipSystemManager GetShipSystemManager()
     {
         if(shipSystemManager == null)
         {shipSystemManager = FindObjectOfType<ShipSystemManager>(); }
         return shipSystemManager;
     }
-
+    public TaskManager GetTaskManager()
+    {
+        if(taskManager == null)
+        {taskManager = FindObjectOfType<TaskManager>(); }
+        return taskManager;
+    }
 #endregion
 
 
@@ -169,12 +207,25 @@ public class EventManager : MonoBehaviourPun
         index = 0;
         game = true;
         tutorial = false;
+        timer.StartTimer();
     }
 
     public void EndGame()
     {
-
+        Results1.enabled = true;
+        Results2.enabled = true;
+        if (taskManager.GetOutstandingSystems().Count == 0) // success
+        {         
+            Results1.text = "You Win! The Astronauts landed on the moon.";
+            Results2.text = "You Win! The Astronauts landed on the moon.";
+        }
+        else    // failure
+        {
+            Results1.GetComponent<TextMeshProUGUI>().text = "Mission Aborted. The spacecraft has crashed on the moon.";
+            Results2.GetComponent<TextMeshProUGUI>().text = "Mission Aborted. The spacecraft has crashed on the moon.";
+        }
     }
+
 
 
 }
